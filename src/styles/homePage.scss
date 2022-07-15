@@ -1,0 +1,191 @@
+@import "./root.scss";
+
+$count-book-item: 6;
+
+main {
+  .section__label {
+    font-weight: bold;
+    color: $main-color;
+    font-size: 1.5rem;
+
+    i {
+      color: $main-color;
+      margin-right: 0.5rem;
+    }
+  }
+  &.home-page {
+    margin-top: 5rem;
+    .section-one {
+      .container {
+        flex-direction: column;
+      }
+      .book-group {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        &__book-item {
+          background-color: white;
+          min-height: 5rem;
+          flex: 1 0 calc(100% / $count-book-item - 1rem);
+          max-width: calc(100% / $count-book-item - 1rem);
+
+          margin: 0 0.5rem 2rem 0.5rem;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          position: relative;
+          .book-item {
+            &__minisize:hover {
+              .info__book-title {
+                color: $main-color;
+              }
+            }
+
+            &__image {
+              height: 15rem;
+              background-color: transparent;
+              margin: 0.25rem;
+              border-radius: 10px;
+              overflow: hidden;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            &__info {
+              .info {
+                &__book-title {
+                  font-weight: 600;
+                  font-size: 1rem;
+
+                  transition: all 0.1s ease-in;
+                  word-break: break-all;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                }
+              }
+              padding: 0.25rem 0.5rem;
+            }
+
+            &__fullsize {
+              position: absolute;
+              transition: all 0.5s 0.3s ease-in-out;
+              background-color: white;
+              box-shadow: 0px 4px 8px rgba($color: #000000, $alpha: 0.2);
+              border-radius: 10px;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+              z-index: -5;
+              height: 50%;
+              width: 50%;
+
+              overflow: hidden;
+
+              flex-direction: column;
+              display: flex;
+              .fullsize {
+                &__image {
+                  height: 7rem;
+                  flex: 1;
+                  background-color: lightgray;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                  }
+                }
+
+                &__info {
+                  padding: 0.25rem 0.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  .info {
+                    &__title {
+                      font-weight: 600;
+                      font-size: 1rem;
+
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      display: -webkit-box;
+                      word-break: break-all;
+                      -webkit-line-clamp: 1;
+                      -webkit-box-orient: vertical;
+                      cursor: pointer;
+                      transition: all 0.2s ease-in;
+
+                      &:hover {
+                        color: $main-color;
+                      }
+                    }
+
+                    &__time {
+                      color: gray;
+                      font-size: 0.75rem;
+                      margin: 0.25rem 0;
+                    }
+                    &__tags {
+                      margin-bottom: 0.5rem;
+                      display: flex;
+                      overflow-x: auto;
+                      &::-webkit-scrollbar {
+                        display: none;
+                      }
+                      span + span {
+                        margin-left: 0.5rem;
+                      }
+                      span {
+                        background-color: $main-color;
+                        padding: 0.25rem 0.5rem;
+                        font-size: 0.75rem;
+                        color: white;
+                        border-radius: 5px;
+                      }
+                    }
+
+                    &__desc {
+                      font-size: small;
+                      word-break: break-work;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      display: -webkit-box;
+                      -webkit-line-clamp: 5;
+                      -webkit-box-orient: vertical;
+                    }
+
+                    &__btn {
+                      padding: 0.25rem 0rem;
+                      height: 2rem;
+                      border-radius: 5px;
+                      flex: 1;
+                      margin: 0.5rem 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            &__minisize:hover {
+              .book-item__fullsize {
+                display: flex;
+                height: 130%;
+                width: 130%;
+                z-index: 10;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

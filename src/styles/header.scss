@@ -1,0 +1,80 @@
+@import "./root.scss";
+
+header {
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  z-index: 10000;
+  background-color: white;
+
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  .container {
+    height: 100%;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    i {
+      margin-right: 0.5rem;
+      font-size: 2rem;
+      color: $main-color;
+    }
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: dark;
+      span {
+        color: $main-color;
+      }
+    }
+  }
+  .header-search {
+    display: flex;
+    align-items: center;
+    &__author-search {
+      margin: 0 3rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease-in;
+      &:hover {
+        color: $main-color;
+      }
+    }
+
+    &__etag-search {
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease-in;
+      &:hover {
+        color: $main-color;
+      }
+    }
+    &__text-search {
+      height: 3rem;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0px 2px 4px rgba($color: #000000, $alpha: 0.2);
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      i {
+        padding: 0 1rem;
+      }
+      input {
+        flex: 1;
+        margin-right: 0.25rem;
+        height: 100%;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
