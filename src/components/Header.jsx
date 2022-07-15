@@ -1,11 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header>
       <div className="container">
         <div className="wrapper" style={{ justifyContent: "space-between" }}>
-          <div className="header-logo">
+          <div
+            className="header-logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <i className="fa-solid fa-book"></i>
             <p>
               Book<span>Shell</span>

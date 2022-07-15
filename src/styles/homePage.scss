@@ -61,6 +61,7 @@ main {
             &__info {
               .info {
                 &__book-title {
+                  cursor: pointer;
                   font-weight: 600;
                   font-size: 1rem;
 
@@ -152,7 +153,13 @@ main {
                         border-radius: 5px;
                       }
                     }
-
+                    &__author {
+                      font-size: 0.75rem;
+                      span {
+                        font-weight: bold;
+                        color: $main-color;
+                      }
+                    }
                     &__desc {
                       font-size: small;
                       word-break: break-work;

@@ -12,12 +12,11 @@ const HomePageContainer = () => {
     if (!bookList.length) {
       dispatch(fetchBookList());
     }
-  }, []);
+  }, [bookList, dispatch]);
 
   return (
     <main className="home-page">
       <SectionOne />
-      <section className="section-two"></section>
     </main>
   );
 };
