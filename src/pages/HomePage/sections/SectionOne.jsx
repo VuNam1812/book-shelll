@@ -1,19 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import BookItem from "../commons/BookItem";
 
-const SectionOne = () => {
-  const bookList = useSelector((state) => state?.bookReducer?.list);
-
+const SectionOne = ({ books }) => {
   return (
     <section className="section-one">
       <div className="container">
-        <label className="section__label">
-          <i className="fa-solid fa-star"></i>
-          Hot new
-        </label>
+        <div className="header-section">
+          <label className="section__label">
+            <i className="fa-solid fa-star"></i>
+            Hot new
+          </label>
+          <button>
+            <i className="fa-solid fa-plus"></i>Add Book
+          </button>
+        </div>
         <div className="book-group">
-          {bookList?.map((book, index) => {
+          {books?.map((book, index) => {
             return <BookItem book={book} key={index} />;
           })}
         </div>

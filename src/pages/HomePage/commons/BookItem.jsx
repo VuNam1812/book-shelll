@@ -44,8 +44,8 @@ const BookItem = ({ book }) => {
               {book?.volumeInfo?.pageCount || "-"} pages
             </p>
             <p className="info__tags">
-              {book?.volumeInfo?.categories?.map((tag) => {
-                return <span>{tag}</span>;
+              {book?.volumeInfo?.categories?.map((tag, index) => {
+                return <span key={index}>{tag}</span>;
               })}
             </p>
             <p className="info__author">

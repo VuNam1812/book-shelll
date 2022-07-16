@@ -19,13 +19,13 @@ const Header = () => {
             </p>
           </div>
           <div className="header-search">
-            <div className="header-search__etag-search">Etag</div>
+            {/* <div className="header-search__etag-search">Etag</div>
             <div className="header-search__author-search">Author</div>
             <div className="header-search__text-search">
               <i className="fa-solid fa-magnifying-glass"></i>
               <input placeholder="Type to search"></input>
               <button>Search</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
