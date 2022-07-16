@@ -52,7 +52,12 @@ const BookItem = ({ book }) => {
               <span>Authors: </span>
               {book?.volumeInfo?.authors?.join(", ") || "-"}{" "}
             </p>
-            <p className="info__desc">{book?.volumeInfo?.description || "-"}</p>
+            <div
+              className="info__desc"
+              dangerouslySetInnerHTML={{
+                __html: book?.volumeInfo?.description,
+              }}
+            ></div>
             <button className="info__btn" onClick={handleRedirectBook}>
               Detail
             </button>

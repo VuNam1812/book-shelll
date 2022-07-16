@@ -31,7 +31,6 @@ const HomePageContainer = () => {
         const destinationSearch = (description + " " + title).toLowerCase();
         const searchParam = params.search.toLowerCase();
         const idx = destinationSearch.indexOf(searchParam);
-        console.log(destinationSearch, searchParam, idx);
         return idx !== -1;
       });
     }
@@ -41,11 +40,15 @@ const HomePageContainer = () => {
 
   useEffect(() => {
     (async () => {
-      const fetchDispatch = await dispatch(fetchBookList());
-      const resBook = unwrapResult(fetchDispatch);
-      setBooks([...resBook]);
+      if (!bookList.length) {
+        const fetchDispatch = await dispatch(fetchBookList());
+        const resBook = unwrapResult(fetchDispatch);
+        setBooks([...resBook]);
+      } else {
+        setBooks([...bookList]);
+      }
     })();
-  }, []);
+  }, [dispatch]);
 
   return (
     <main className="home-page">

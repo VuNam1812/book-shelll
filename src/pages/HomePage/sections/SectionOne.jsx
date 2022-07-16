@@ -1,7 +1,9 @@
 import React from "react";
 import BookItem from "../commons/BookItem";
+import { useNavigate } from "react-router-dom";
 
 const SectionOne = ({ books }) => {
+  const navigate = useNavigate();
   return (
     <section className="section-one">
       <div className="container">
@@ -10,7 +12,11 @@ const SectionOne = ({ books }) => {
             <i className="fa-solid fa-star"></i>
             Hot new
           </label>
-          <button>
+          <button
+            onClick={() => {
+              navigate("/books/create");
+            }}
+          >
             <i className="fa-solid fa-plus"></i>Add Book
           </button>
         </div>

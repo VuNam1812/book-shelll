@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import bookApi from "../../apis/bookApi.js";
+import defaultBook from "./defaultBook";
 import _ from "lodash";
 const fetchBookList = createAsyncThunk("books/fetchList", async (_) => {
   try {
@@ -33,7 +34,23 @@ const initialState = {
 const slice = createSlice({
   name: "books",
   initialState,
-  reducers: {},
+  reducers: {
+    createBook: (state, { payload }) => {
+      state.list?.push(_.merge(defaultBook, payload));
+    },
+    updateBook: (state, { payload }) => {
+      const idx = state.list.find((val) => val.id === payload.id);
+      if (idx === -1) return;
+
+      state.list[idx] = _.merge(state.list[idx], payload);
+    },
+    deleteBook: (state, { payload }) => {
+      const idx = state.list.find((val) => val.id === payload.id);
+      if (idx === -1) return;
+
+      state.list?.splice(idx, 1);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchBookList.fulfilled, (state, action) => {
       state.list = action?.payload || [];
@@ -54,5 +71,5 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-// export const {} = slice.actions;
+export const { createBook, updateBook, deleteBook } = slice.actions;
 export { fetchBookList, fetchBookDetail };

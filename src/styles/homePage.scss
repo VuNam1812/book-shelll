@@ -1,7 +1,5 @@
 @import "./root.scss";
 
-$count-book-item: 6;
-
 main {
   .react-select__control {
     border: none !important;
@@ -39,13 +37,25 @@ main {
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: stretch;
+        --count-book-item: 6;
 
         &__book-item {
           background-color: white;
           min-height: 5rem;
-          flex: 1 0 calc(100% / $count-book-item - 1rem);
-          max-width: calc(100% / $count-book-item - 1rem);
-
+          flex: 1 0 calc(100% / var(--count-book-item) - 1rem);
+          max-width: calc(100% / var(--count-book-item) - 1rem);
+          @media screen and (max-width: 1200px) {
+            --count-book-item: 5;
+          }
+          @media screen and (max-width: 1000px) {
+            --count-book-item: 4;
+          }
+          @media screen and (max-width: 768px) {
+            --count-book-item: 3;
+          }
+          @media screen and (max-width: 540px) {
+            --count-book-item: 2;
+          }
           margin: 0 0.5rem 2rem 0.5rem;
 
           display: flex;
@@ -210,11 +220,18 @@ main {
     }
 
     .section-two {
-      min-height: 40vh;
+      min-height: 30vh;
+      max-height: 500px;
       background-color: rgba($color: $main-color, $alpha: 0.3);
       margin-bottom: 2rem;
       align-items: center;
       display: flex;
+      @media screen and (max-width: 600px) {
+        .inputs-group,
+        .wrapper {
+          flex: 1;
+        }
+      }
       .inputs-group {
         background-color: $main-color;
         padding: 1rem;
@@ -237,6 +254,9 @@ main {
               justify-content: space-between;
               i {
                 padding: 0 1rem;
+                @media screen and (max-width: 400px) {
+                  padding: 0 0.5rem;
+                }
               }
               input {
                 flex: 1;
@@ -244,6 +264,10 @@ main {
                 height: 100%;
                 border: none;
                 outline: none;
+              }
+
+              @media screen and (max-width: 600px) {
+                width: unset;
               }
             }
           }
